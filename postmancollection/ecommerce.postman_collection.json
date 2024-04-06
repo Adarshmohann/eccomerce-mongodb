@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "cb22f5d1-df2c-40f4-b2d9-b48944c6d898",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28081738",
+		"_collection_link": "https://restless-flare-353845.postman.co/workspace/MongoDb~c26ba82d-88b8-455d-9b31-6e6f3a71fcf1/collection/28081738-cb22f5d1-df2c-40f4-b2d9-b48944c6d898?action=share&source=collection_link&creator=28081738"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"username\":\"akash\",\r\n     \"password\":\"1234d456\", \r\n     \"mobile\":\"12342\", \r\n     \"email\":\"akash@gmail.com\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"adarsh@gmail.com\",\r\n    \"password\":\"1234d456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"adarsh\",\r\n     \"password\":\"123456\", \r\n     \"mobile\":\"12342\", \r\n     \"email\":\"admi4n3@gmail.com\"\r\n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/createAdmin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"createAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/getAllUsers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "image",
+			"item": [
+				{
+					"name": "uploadimage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Home/Downloads/workShopedumentor.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/image/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "add product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Shorts\",\r\n    \"images\": [\"/uploads/images/dummy.png\", \"/uploads/images/dummy.png\"],\r\n    \"price\": \"300\",\r\n    \"description\": \"lorem ipsum\",\r\n    \"brand\": \"puma\",\r\n    \"stockQuantity\": \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/addproduct",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"addproduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/getall-products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"getall-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sneaker\",\r\n    \"images\": [\"/uploads/images/dummy.png\", \"/uploads/images/dummy.png\"],\r\n    \"price\": \"3456\",\r\n    \"description\": \"lorem ipsum\",\r\n    \"brand\": \"addidas\",\r\n    \"stockQuantity\": \"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/editproduct/661189b2540ee5f3531e809d",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"editproduct",
+								"661189b2540ee5f3531e809d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/deleteproduct/66118996540ee5f3531e8099",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"deleteproduct",
+								"66118996540ee5f3531e8099"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "add to cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjExODk4MDU0MGVlNWYzNTMxZTgwOTQiLCJlbWFpbCI6ImFkYXJzaEBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6MSwiaWF0IjoxNzEyNDI1NTU0LCJleHAiOjE3MTY3NDU1NTR9.WqXUs-qw8ZYj9ZRCRpCYJ2BmGevJFEWVrBxTi8E3Ing",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"661189a8540ee5f3531e809b\",\r\n    \"quantity\":\"12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cart/addToCart",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cart",
+								"addToCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjExODk4MDU0MGVlNWYzNTMxZTgwOTQiLCJlbWFpbCI6ImFkYXJzaEBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6MSwiaWF0IjoxNzEyNDI1NTU0LCJleHAiOjE3MTY3NDU1NTR9.WqXUs-qw8ZYj9ZRCRpCYJ2BmGevJFEWVrBxTi8E3Ing",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/getmycart",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cart",
+								"getmycart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "increment quantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/incrementQuantity/661118b1a715dce2bbabe033",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cart",
+								"incrementQuantity",
+								"661118b1a715dce2bbabe033"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decrement item quantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/decrementQuantity/661118b1a715dce2bbabe033",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cart",
+								"decrementQuantity",
+								"661118b1a715dce2bbabe033"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove from cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjEwZTJhMGM3NzM0YzlkZmZkMThjZWMiLCJlbWFpbCI6ImFkbWk0bjNAZ21haWwuY29tIiwidXNlclR5cGUiOjAsImlhdCI6MTcxMjM4MjYyNCwiZXhwIjoxNzE2NzAyNjI0fQ.h-yOgwY-h6Xl1_jp7Mau3s2TQ-CJv87AEPRRDGhBDyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/removeFromCart/661118b1a715dce2bbabe033",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cart",
+								"removeFromCart",
+								"661118b1a715dce2bbabe033"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3050",
+			"type": "string"
+		}
+	]
+}
