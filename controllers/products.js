@@ -1,3 +1,4 @@
+const { jwtDecoder } = require('../helpers/jwtdecoder.js')
 const Product = require('../models/products.js')
 const jwt = require('jsonwebtoken')
 const secret = process.env.secret
@@ -5,19 +6,21 @@ const secret = process.env.secret
 
 const addProduct = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1]
-        const decodedToken = jwt.verify(token, secret)
-        const userType = decodedToken.userType
+        // const token = req.headers.authorization?.split(' ')[1]
+        // const decodedToken = jwt.verify(token, secret)
+        // const userType = decodedToken.userType
         const { name, images, price, description, brand, stockQuantity } = req.body
 
         // Check if the user is authorized to add a product
-        if (userType !== 0) {
-            return res.status(403).json({
-                status: false,
-                error: true,
-                message: "Access Denied, only admins can add product"
-            })
-        }
+        // if (userType !== 0) {
+        //     return res.status(403).json({
+        //         status: false,
+        //         error: true,
+        //         message: "Access Denied, only admins can add product"
+        //     })
+        // }
+
+     
 
         // Check for missing mandatory fields
         if (!name || !description || !brand || !images || images.length == 0 || !(parseInt(price) > 0)) {
@@ -92,20 +95,20 @@ const getAllProducts = async (req, res) => {
 
 const editProduct = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1]
-        const decodedToken = jwt.verify(token, secret)
-        const userType = decodedToken.userType
+        // const token = req.headers.authorization?.split(' ')[1]
+        // const decodedToken = jwt.verify(token, secret)
+        // const userType = decodedToken.userType
 
         const productId = req.params.productId
         const { name, images, price, description, brand, stockQuantity } = req.body
 
-        if (userType !== 0) {
-            return res.status(403).json({
-                status: false,
-                error: true,
-                message: "Access Denied"
-            })
-        }
+        // if (userType !== 0) {
+        //     return res.status(403).json({
+        //         status: false,
+        //         error: true,
+        //         message: "Access Denied"
+        //     })
+        // }
 
         if (!productId) {
             return res.status(400).json({
@@ -156,20 +159,22 @@ const editProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        const decodedToken = jwt.verify(token, secret);
-        const userType = decodedToken.userType;
+        // const token = req.headers.authorization?.split(' ')[1];
+        // const decodedToken = jwt.verify(token, secret);
+        // const userType = decodedToken.userType;
 
         const productId = req.params.productId;
 
         // admin authrization
-        if (userType !== 0) {
-            return res.status(403).json({
-                status: false,
-                error: true,
-                message: "Access Denied"
-            })
-        }
+        // if (userType !== 0) {
+        //     return res.status(403).json({
+        //         status: false,
+        //         error: true,
+        //         message: "Access Denied"
+        //     })
+        // }
+
+  
  //validating productid
         if (!productId) {
             return res.status(400).json({

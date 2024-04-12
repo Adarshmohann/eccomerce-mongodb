@@ -40,10 +40,10 @@ mongoose.connect(process.env.mongo_connection_url)
 
 mongoose.connection.on('error',error => {
   console.log('error', error.message)
-  res.status(500).json({
-    message: "failed to connect with db",
-    reason : error.message
-  })
+  // res.status(500).json({
+  //   message: "failed to connect with db",
+  //   reason : error.message
+  // })
 })
 
 

@@ -7,12 +7,12 @@ const secret = process.env.secret
 
 const addToCart = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1]
-        const decodedToken = jwt.verify(token, secret)
-        const userId = decodedToken.userId
+        // const token = req.headers.authorization?.split(' ')[1]
+        // const decodedToken = jwt.verify(token, secret)
+        const userId = req.userId
         const { productId, quantity } = req.body
         
-
+    
         //validating the body
         if (!productId || parseInt(quantity) <= 0) {
             return res.status(400).json({
@@ -86,9 +86,9 @@ const addToCart = async (req, res) => {
 
 const getMyCart = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        const decodedToken = jwt.verify(token, secret);
-        const userId = decodedToken.userId;
+        // const token = req.headers.authorization?.split(' ')[1];
+        // const decodedToken = jwt.verify(token, secret);
+        const userId = req.userId;
 
         // finding the cart
         const cart = await Cart.findOne({ userId }).select('-createdAt -updatedAt -__v').lean()
@@ -147,9 +147,9 @@ const getMyCart = async (req, res) => {
 
 const incrementItemQuantity = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1]
-        const decodedToken = jwt.verify(token, secret)
-        const userId = decodedToken.userId
+        // const token = req.headers.authorization?.split(' ')[1]
+        // const decodedToken = jwt.verify(token, secret)
+        const userId = req.userId
 
         const productId = req.params.productId
 
@@ -209,9 +209,9 @@ const incrementItemQuantity = async (req, res) => {
 
 const decrementItemQuantity = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        const decodedToken = jwt.verify(token, secret);
-        const userId = decodedToken.userId;
+        // const token = req.headers.authorization?.split(' ')[1];
+        // const decodedToken = jwt.verify(token, secret);
+        const userId = req.userId;
 
         const productId = req.params.productId;
 
@@ -281,9 +281,9 @@ const decrementItemQuantity = async (req, res) => {
 
 const removeFromCart = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        const decodedToken = jwt.verify(token, secret);
-        const userId = decodedToken.userId;
+        // const token = req.headers.authorization?.split(' ')[1];
+        // const decodedToken = jwt.verify(token, secret);
+        const userId = req.userId;
 
         const productId = req.params.productId
 

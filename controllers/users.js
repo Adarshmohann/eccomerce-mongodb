@@ -67,7 +67,7 @@ const createUser = async (req, res) => {
 
 const createAdmin = async (req, res) => {
     try {
-        const { username, password, mobile, email } = req.body
+        const { username, password, mobile, email, image } = req.body
 
 
         //validating the body
@@ -90,7 +90,8 @@ const createAdmin = async (req, res) => {
          }
 
         //hashing the password
-        const hashedPassword = await hashAsync(password, 10)
+        // const hashedPassword = await hashAsync(password, 10)
+        const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({
             username: username,
             image: image ?? "/uploads/images/image_1712382996447.png",
